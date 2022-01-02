@@ -9,5 +9,5 @@ Random Walk算法首先需要预设一个随机游走的步长作为节点序列
   DeepWalk的目标是要学习网络中节点的潜在表示，而不仅仅是节点之间共现的概率分布，因此引入一个映射函数![image](https://user-images.githubusercontent.com/50071592/147872730-71f688ad-c98c-4793-b3c8-20f6dae39552.png)，实际上，可用隐藏层的权重矩阵来表示映射函数Φ。这样，模型的优化目标就变为![image](https://user-images.githubusercontent.com/50071592/147872881-aea453d6-6acf-4a1e-b264-dce67268886c.png)  
 以下是skip-gram算法：   
 ![image](https://user-images.githubusercontent.com/50071592/147873304-5743b1af-c718-4cf9-b8cd-7517b7143a63.png)  
-该模型与自动编码器原理很相似，当模型训练完成后，我们真正需要的并不是输出层数据，而是中间隐藏层的权重矩阵。权重矩阵的为|V|×d为的矩阵，  
+该模型与自动编码器原理很相似，当模型训练完成后，我们真正需要的并不是输出层数据，而是中间隐藏层的权重矩阵。权重矩阵的为|V|×d为的矩阵，其第i行便为节点vi的***Embedding***表示。而对于大型网络的情况，可采用`Hierarchical Softmax`或`negative sampling`来对模型进行优化，提升执行效率。
 ![skip-gram](https://user-images.githubusercontent.com/50071592/147868922-d25d9a9d-cc2f-407e-b255-7e1607f9996f.png)
